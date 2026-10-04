@@ -1,0 +1,48 @@
+assets/characters/README.md
+  h_d7f45408b008e1 1-26
+assets/characters/fist.png.import
+  h_d7f45408b008e1 1-40
+assets/characters/mazoku.png.import
+  h_d7f45408b008e1 1-40
+assets/characters/patryn.png.import
+  h_d7f45408b008e1 1-40
+assets/characters/regions.gd
+  h_d7f45408b008e1 1-74
+assets/characters/regions.gd.uid
+  h_d7f45408b008e1 1
+assets/characters/saiyan.png.import
+  h_d7f45408b008e1 1-40
+assets/characters/witch_warlock.png.import
+  h_d7f45408b008e1 1-40
+docs/DEVELOPMENT_ROADMAP.md
+  h_d7f45408b008e1 7,74,90-106
+game/actors/player.gd
+  h_d7f45408b008e1 4,24-26,28-33
+game/actors/race_sprites.gd
+  h_d7f45408b008e1 1-33
+game/actors/race_sprites.gd.uid
+  h_d7f45408b008e1 1
+game/main.gd
+  h_d7f45408b008e1 49
+tests/integration/test_temple.gd
+  h_d7f45408b008e1 157-166
+tests/unit/test_race_sprites.gd
+  h_d7f45408b008e1 1-38
+tests/unit/test_race_sprites.gd.uid
+  h_d7f45408b008e1 1
+tools/build_sprite_regions.gd
+  h_d7f45408b008e1 1-32
+tools/build_sprite_regions.gd.uid
+  h_d7f45408b008e1 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "6a8547d2d8d4f0172a137620aff43b03871f228a",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
