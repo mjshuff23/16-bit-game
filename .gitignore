@@ -1,0 +1,8 @@
+# Godot-generated import cache and local editor state.
+.godot/
+# Local exports and credentials.
+builds/
+export_credentials.cfg
+# Platform metadata.
+.DS_Store
+Thumbs.db

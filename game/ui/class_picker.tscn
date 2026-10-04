@@ -1,0 +1,100 @@
+[gd_scene load_steps=7 format=3]
+
+[ext_resource type="Script" path="res://game/ui/class_picker.gd" id="1"]
+
+[sub_resource type="StyleBoxFlat" id="Style_normal"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.085, 0.13, 0.11, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_hover"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.16, 0.23, 0.17, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_pressed"]
+content_margin_left = 8.0
+content_margin_top = 2.0
+content_margin_right = 8.0
+content_margin_bottom = 2.0
+bg_color = Color(0.24, 0.32, 0.2, 1)
+
+[sub_resource type="StyleBoxFlat" id="Style_focus"]
+bg_color = Color(0, 0, 0, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.82, 0.85, 0.68, 1)
+
+[sub_resource type="Theme" id="Theme_picker"]
+default_font_size = 18
+Button/styles/normal = SubResource("Style_normal")
+Button/styles/hover = SubResource("Style_hover")
+Button/styles/pressed = SubResource("Style_pressed")
+Button/styles/hover_pressed = SubResource("Style_pressed")
+Button/styles/disabled = SubResource("Style_normal")
+Button/styles/focus = SubResource("Style_focus")
+
+[node name="Main" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_picker")
+script = ExtResource("1")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 8.0
+offset_right = 608.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0.82, 0.85, 0.68, 1)
+theme_override_font_sizes/font_size = 28
+text = "Choose your path"
+horizontal_alignment = 1
+
+[node name="Classes" type="GridContainer" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 60.0
+offset_right = 608.0
+offset_bottom = 220.0
+theme_override_constants/h_separation = 12
+theme_override_constants/v_separation = 4
+columns = 3
+
+[node name="Description" type="Label" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 224.0
+offset_right = 608.0
+offset_bottom = 284.0
+theme_override_font_sizes/font_size = 18
+text = "Select a class to learn about it."
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="Confirm" type="Button" parent="."]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 300.0
+offset_right = 384.0
+offset_bottom = 348.0
+disabled = true
+text = "Choose a class"
+
+[node name="Cancel" type="Button" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 300.0
+offset_right = 608.0
+offset_bottom = 348.0
+text = "Not yet (Esc)"
