@@ -41,3 +41,21 @@ Seeded RNG for repeatable tests, randomized seeds for ordinary play.
 Frame-independent time advancement; large deltas must process rounds in order.
 Validate both keyboard and mouse input, summary updates while combat continues,
 readable costs/lag bars, and native Windows portability.
+## Graphical battle presentation
+
+The training screen displays a wooden construct on the left and your race sprite
+on the right. Enter starts; 1 uses Heavy Strike, 2 uses Spark, C toggles the live
+summary, and Esc closes the summary first or leaves training. Buttons also work.
+The melee meter fills toward the next three-second round; the skill-lag meter
+shows remaining lockout on a two-second scale. Both include numeric labels.
+
+Flashes and floating damage/miss labels are cosmetic, never blocking simulation.
+Damage labels report actual HP removed (capped for overkill/nonlethal defeat);
+the existing log retains its nominal attack-damage wording. No new combat balance,
+party system, progression rewards, save fields or dedicated animation sheets.
+
+Developer interface: TrainingEncounter.combat_event emits kind (started/hit/miss/
+finished), actor and target (player/enemy or empty for lifecycle events), damage,
+skill (empty for melee), and outcome (on finished). The battle view subscribes on
+open and disconnects on close. TrainingScreen.open takes the encounter and the
+active CharacterSession for identity; BattleStage owns only cosmetic state.

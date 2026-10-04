@@ -1,5 +1,6 @@
 class_name TrainingEncounter
 extends RefCounted
+signal combat_event(event: Dictionary)
 ## Pure timed simulation. The UI advances time and sends commands; it owns no rules.
 const ROUND_SECONDS := 3.0
 const ENEMY_MAX_HEALTH := 600
@@ -33,6 +34,7 @@ func start() -> bool:
 	rounds = 0
 	messages.clear()
 	_note("Training started. Automatic melee every 3 seconds.")
+	_event(&"started")
 	return true
 
 func advance(delta: float) -> void:
@@ -66,7 +68,9 @@ func use_skill(id: StringName) -> bool:
 	stats.vigor -= int(skill.vigor)
 	lag_remaining = float(skill.lag)
 	var damage := 120 + (2 * stats.body if id == &"heavy_strike" else 4 * stats.willpower)
+	var dealt := mini(damage, enemy_health)
 	_damage_enemy(damage)
+	_event(&"hit", &"player", &"enemy", dealt, id)
 	_note("%s deals %d damage." % [skill.name, damage])
 	if enemy_health == 0:
 		_finish(&"victory", "Victory! Rest here or leave to recover.")
@@ -86,22 +90,29 @@ func _resolve_round() -> void:
 	rounds += 1
 	if _rng.randi_range(1, 100) <= hit_chance():
 		var damage := melee_damage()
+		var dealt := mini(damage, enemy_health)
 		_damage_enemy(damage)
+		_event(&"hit", &"player", &"enemy", dealt)
 		_note("Round %d: your melee hits for %d." % [rounds, damage])
 	else:
 		_note("Round %d: your melee misses." % rounds)
+		_event(&"miss", &"player", &"enemy")
 	if enemy_health == 0:
 		_finish(&"victory", "Victory! Rest here or leave to recover.")
 		return
 	if _rng.randi_range(1, 100) <= 65:
+		var dealt := maxi(0, mini(90, stats.health - 1))
 		if stats.health <= 90:
 			stats.health = 1
+			_event(&"hit", &"enemy", &"player", dealt)
 			_finish(&"defeat", "Training ends safely at 1 Health. Rest to recover.")
 		else:
 			stats.health -= 90
+			_event(&"hit", &"enemy", &"player", dealt)
 			_note("The practice opponent hits for 90.")
 	else:
 		_note("The practice opponent misses.")
+		_event(&"miss", &"enemy", &"player")
 
 func _damage_enemy(amount: int) -> void:
 	enemy_health = maxi(0, enemy_health - maxi(0, amount))
@@ -110,8 +121,11 @@ func _finish(outcome: StringName, message: String) -> void:
 	state = outcome
 	lag_remaining = 0.0
 	_note(message)
+	_event(&"finished", &"", &"", 0, &"", outcome)
 
 func _note(message: String) -> void:
 	messages.append(message)
 	while messages.size() > 4:
 		messages.pop_front()
+func _event(kind: StringName, actor: StringName = &"", target: StringName = &"", damage: int = 0, skill: StringName = &"", outcome: StringName = &"") -> void:
+	combat_event.emit({"kind": kind, "actor": actor, "target": target, "damage": damage, "skill": skill, "outcome": outcome})

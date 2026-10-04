@@ -103,5 +103,46 @@ func test_training_layout_has_no_bar_or_log_overlap() -> void:
 	game.encounter.advance(3.0)
 	screen.refresh()
 	await wait_process_frames(2)
-	assert_lte(screen.get_node("Log").get_global_rect().end.y, screen.get_node("HeavyStrike").global_position.y)
+	assert_lte(screen.get_node("HeavyStrike").get_global_rect().end.y, screen.get_node("Log").global_position.y)
 	assert_lte(screen.get_node("Footer").get_global_rect().end.y, 360.0)
+	assert_lte(screen.get_node("MeleeMeter").get_global_rect().end.y, screen.get_node("HeavyStrike").global_position.y)
+	assert_lte(screen.get_node("LagMeter").get_global_rect().end.y, screen.get_node("Spark").global_position.y)
+func test_battle_identity_effects_and_old_connection_cleanup() -> void:
+	choose_class()
+	var screen = game.get_node("Interface/Training")
+	for race in RaceCatalog.RACES:
+		game.session.race_id = race
+		game._open_training()
+		assert_eq(screen.stage.race_id, race)
+		assert_string_contains(screen.get_node("Identity").text, "Trainee")
+		assert_string_contains(screen.get_node("Identity").text, "Monk")
+		var old: TrainingEncounter = game.encounter
+		old.start()
+		old.use_skill(&"spark")
+		assert_eq(screen.stage.feedback.size(), 1)
+		assert_string_contains(screen.stage.feedback[0].text, "Spark")
+		var time_before := old.until_round
+		screen.stage._process(0.2)
+		assert_eq(old.until_round, time_before, "Visual time never advances the model")
+		game._leave_training()
+		assert_eq(screen.stage.feedback.size(), 0)
+		assert_false(old.combat_event.is_connected(screen.stage.present))
+		old.start()
+		old.use_skill(&"heavy_strike")
+		assert_eq(screen.stage.feedback.size(), 0, "Old encounters cannot add effects")
+
+func test_feedback_overlaps_and_restart_clears_it() -> void:
+	choose_class()
+	game._open_training()
+	var screen = game.get_node("Interface/Training")
+	var model: TrainingEncounter = game.encounter
+	model.start()
+	screen.stage.present({"kind": &"hit", "actor": &"player", "target": &"enemy", "damage": 12, "skill": &"heavy_strike"})
+	screen.stage.present({"kind": &"miss", "actor": &"enemy", "target": &"player", "damage": 0, "skill": &""})
+	assert_eq(screen.stage.feedback.size(), 2)
+	assert_ne(screen.stage.feedback[0].origin, screen.stage.feedback[1].origin)
+	model.withdraw()
+	screen.refresh()
+	assert_string_contains(screen.get_node("Outcome").text, "Withdrawn")
+	model.start()
+	assert_eq(screen.stage.feedback.size(), 0)
