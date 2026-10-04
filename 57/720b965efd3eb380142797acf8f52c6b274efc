@@ -1,0 +1,30 @@
+assets/characters/README.md
+  h_d7f45408b008e1 15
+docs/DEVELOPMENT_ROADMAP.md
+  h_d7f45408b008e1 76-79,107-112
+game/actors/race_sprites.gd
+  h_d7f45408b008e1 19-21
+tests/integration/test_temple.gd
+  h_d7f45408b008e1 166-167
+tests/unit/test_race_sprites.gd
+  h_d7f45408b008e1 10-11,18-19,43-49
+tools/build_sprite_regions.gd
+  h_d7f45408b008e1 6-11,18-21,25,30-33,44-47,49-54
+tools/check.ps1
+  h_d7f45408b008e1 9-10
+tools/check.sh
+  h_d7f45408b008e1 7
+tools/test_sprite_regions.py
+  h_d7f45408b008e1 1-57
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "57720b965efd3eb380142797acf8f52c6b274efc",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
