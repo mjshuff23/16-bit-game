@@ -6,6 +6,8 @@ try {
     if ($LASTEXITCODE -ne 0) { throw 'GUT setup failed. Install Python 3 and rerun.' }
     python tools/test_setup_gut.py
     if ($LASTEXITCODE -ne 0) { throw 'GUT setup tests failed.' }
+    python tools/test_sprite_regions.py --godot $Godot
+    if ($LASTEXITCODE -ne 0) { throw 'Sprite metadata tests failed.' }
     function Invoke-GodotCheck {
         param([string[]]$EngineArgs)
         $lines = & $Godot @EngineArgs 2>&1

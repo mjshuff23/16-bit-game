@@ -73,10 +73,10 @@ others here, and revise after playing rather than committing to a giant roadmap.
   skills impose custom action lag. Optional turn-based combat can come later.
 ## Selected milestone: race sprites (implemented below)
 
-After the temple encounter PR: **race-specific sprites**. References and acceptance
-criteria are in [race-sprites/README.md](reference/race-sprites/README.md). Implement
-base appearances for the five races first; transformations and equipment layers
-are later extensions. Other routes above remain available after this milestone.
+The five base race appearances are implemented; details and verification are
+recorded below. Original references are in
+[race-sprites/README.md](reference/race-sprites/README.md). Transformations and
+equipment layers remain future extensions. Other expansion routes remain open.
 
 ## Verification record — 2026-10-04
 
@@ -104,3 +104,9 @@ Validation: 58 GUT tests / 630 assertions on WSL and Windows, plus 5 setup tests
 headless imports/startup and Windows release export. Inspected native rendered
 idle and both walking poses for every race/direction, temple scale, and repeated
 rendering from the exported PCK. Further animation smoothing remains a polish task.
+
+Review follow-up: fractional facing uses axis/sign; sheet-cell and catalog coverage
+assertions prevent shared-frame regressions. Generator validation rejects bad input
+before touching metadata and fails explicitly on output errors. Checks now include
+three isolated generator tests. Updated validation: 59 GUT tests / 740 assertions,
+5 setup tests and 3 generator tests on WSL and native Windows; Windows export passes.

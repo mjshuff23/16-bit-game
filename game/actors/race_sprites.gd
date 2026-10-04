@@ -16,11 +16,9 @@ static func frame_at(time: float) -> int:
 
 static func data(race: StringName, direction: Vector2, frame: int) -> Dictionary:
 	var row := 0
-	if direction == Vector2.LEFT:
-		row = 1
-	elif direction == Vector2.RIGHT:
-		row = 2
-	elif direction == Vector2.UP:
+	if direction.x != 0.0 and absf(direction.x) >= absf(direction.y):
+		row = 1 if direction.x < 0.0 else 2
+	elif direction.y < 0.0:
 		row = 3
 	return REGIONS.get(String(race), REGIONS["saiyan"])[row * 3 + clampi(frame, 0, 2)]
 

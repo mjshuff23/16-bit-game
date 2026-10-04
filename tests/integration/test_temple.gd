@@ -163,4 +163,6 @@ func test_entering_world_applies_each_profile_race() -> void:
 		profile.class_id = &"wizard"
 		game._enter_world(profile)
 		assert_eq(world.player.race_id, race)
+		assert_true(RaceSprites.SHEETS.has(race))
+		assert_true(RaceSprites.REGIONS.has(String(race)))
 		assert_eq(world.selected_class, &"wizard", "Race art does not change class")

@@ -12,7 +12,7 @@ at eight frames per second while moving. Stopping returns to idle.
 rewriting the PNGs. Rebuild after replacing a sheet with:
 
 ```sh
-godot --headless --path . --script tools/build_sprite_regions.gd
+"${GODOT_BIN:-$HOME/.local/bin/godot}" --headless --path . --script tools/build_sprite_regions.gd
 ```
 
 The generator runs only during asset preparation, never in exports. Runtime loads
