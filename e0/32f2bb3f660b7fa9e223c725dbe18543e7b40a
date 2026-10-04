@@ -1,0 +1,16 @@
+.gitattributes
+  h_d7f45408b008e1 11-16
+docs/REVIEW_GUIDE.md
+  h_d7f45408b008e1 1-38
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e032f2bb3f660b7fa9e223c725dbe18543e7b40a",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
