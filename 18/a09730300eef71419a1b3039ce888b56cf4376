@@ -1,0 +1,30 @@
+.gitignore
+  h_d7f45408b008e1 9-13
+README.md
+  h_d7f45408b008e1 52-54
+addons/README.md
+  h_d7f45408b008e1 1,5-11,13-17
+docs/PORTABILITY.md
+  h_d7f45408b008e1 43-46
+docs/REVIEW_GUIDE.md
+  h_d7f45408b008e1 38-44
+tools/check.ps1
+  h_d7f45408b008e1 5-8
+tools/check.sh
+  h_d7f45408b008e1 5-6
+tools/setup_gut.py
+  h_d7f45408b008e1 1-63
+tools/test_setup_gut.py
+  h_d7f45408b008e1 1-61
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "18a09730300eef71419a1b3039ce888b56cf4376",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
