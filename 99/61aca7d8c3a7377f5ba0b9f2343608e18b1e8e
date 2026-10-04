@@ -1,0 +1,608 @@
+.gitattributes
+  h_d7f45408b008e1 1-10
+.gitignore
+  h_d7f45408b008e1 1-8
+AGENTS.md
+  h_d7f45408b008e1 1-24
+PLAN.md
+  h_d7f45408b008e1 1-158
+README.md
+  h_d7f45408b008e1 1-81
+addons/README.md
+  h_d7f45408b008e1 1-9
+addons/gut/GutScene.gd
+  h_d7f45408b008e1 1-132
+addons/gut/GutScene.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/GutScene.tscn
+  h_d7f45408b008e1 1-16
+addons/gut/LICENSE.md
+  h_d7f45408b008e1 1-22
+addons/gut/UserFileViewer.gd
+  h_d7f45408b008e1 1-52
+addons/gut/UserFileViewer.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/UserFileViewer.tscn
+  h_d7f45408b008e1 1-92
+addons/gut/autofree.gd
+  h_d7f45408b008e1 1-86
+addons/gut/autofree.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/awaiter.gd
+  h_d7f45408b008e1 1-201
+addons/gut/awaiter.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/cli/change_project_warnings.gd
+  h_d7f45408b008e1 1-239
+addons/gut/cli/change_project_warnings.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/cli/gut_cli.gd
+  h_d7f45408b008e1 1-328
+addons/gut/cli/gut_cli.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/cli/optparse.gd
+  h_d7f45408b008e1 1-678
+addons/gut/cli/optparse.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/collected_script.gd
+  h_d7f45408b008e1 1-208
+addons/gut/collected_script.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/collected_test.gd
+  h_d7f45408b008e1 1-120
+addons/gut/collected_test.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/comparator.gd
+  h_d7f45408b008e1 1-125
+addons/gut/comparator.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/compare_result.gd
+  h_d7f45408b008e1 1-70
+addons/gut/compare_result.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/diff_formatter.gd
+  h_d7f45408b008e1 1-63
+addons/gut/diff_formatter.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/diff_tool.gd
+  h_d7f45408b008e1 1-156
+addons/gut/diff_tool.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/double_templates/double_data_template.txt
+  h_d7f45408b008e1 1-22
+addons/gut/double_templates/function_template.txt
+  h_d7f45408b008e1 1-9
+addons/gut/double_templates/init_template.txt
+  h_d7f45408b008e1 1-4
+addons/gut/double_templates/script_template.txt
+  h_d7f45408b008e1 1-13
+addons/gut/double_templates/singleton_template.txt
+  h_d7f45408b008e1 1-16
+addons/gut/double_tools.gd
+  h_d7f45408b008e1 1-83
+addons/gut/double_tools.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/doubler.gd
+  h_d7f45408b008e1 1-392
+addons/gut/doubler.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/dynamic_gdscript.gd
+  h_d7f45408b008e1 1-33
+addons/gut/dynamic_gdscript.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/editor_caret_context_notifier.gd
+  h_d7f45408b008e1 1-212
+addons/gut/editor_caret_context_notifier.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/error_tracker.gd
+  h_d7f45408b008e1 1-206
+addons/gut/error_tracker.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/fonts/AnonymousPro-Bold.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/AnonymousPro-BoldItalic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/AnonymousPro-Italic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/AnonymousPro-Regular.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/CourierPrime-Bold.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/CourierPrime-BoldItalic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/CourierPrime-Italic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/CourierPrime-Regular.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/LobsterTwo-Bold.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/LobsterTwo-BoldItalic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/LobsterTwo-Italic.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/LobsterTwo-Regular.ttf.import
+  h_d7f45408b008e1 1-36
+addons/gut/fonts/OFL.txt
+  h_d7f45408b008e1 1-94
+addons/gut/get_editor_interface.gd
+  h_d7f45408b008e1 1-6
+addons/gut/get_editor_interface.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/godot_singletons.gd
+  h_d7f45408b008e1 1-50
+addons/gut/godot_singletons.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/EditorRadioButton.tres
+  h_d7f45408b008e1 1-13
+addons/gut/gui/GutBottomPanel.gd
+  h_d7f45408b008e1 1-563
+addons/gut/gui/GutBottomPanel.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/GutBottomPanel.tscn
+  h_d7f45408b008e1 1-321
+addons/gut/gui/GutControl.gd
+  h_d7f45408b008e1 1-326
+addons/gut/gui/GutControl.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/GutControl.tscn
+  h_d7f45408b008e1 1-63
+addons/gut/gui/GutLogo.tscn
+  h_d7f45408b008e1 1-36
+addons/gut/gui/GutRunner.gd
+  h_d7f45408b008e1 1-247
+addons/gut/gui/GutRunner.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/GutRunner.tscn
+  h_d7f45408b008e1 1-12
+addons/gut/gui/GutSceneTheme.tres
+  h_d7f45408b008e1 1-7
+addons/gut/gui/MinGui.tscn
+  h_d7f45408b008e1 1-161
+addons/gut/gui/NormalGui.tscn
+  h_d7f45408b008e1 1-215
+addons/gut/gui/OutputText.gd
+  h_d7f45408b008e1 1-352
+addons/gut/gui/OutputText.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/OutputText.tscn
+  h_d7f45408b008e1 1-121
+addons/gut/gui/ResizeHandle.gd
+  h_d7f45408b008e1 1-107
+addons/gut/gui/ResizeHandle.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/ResizeHandle.tscn
+  h_d7f45408b008e1 1-8
+addons/gut/gui/ResultsTree.gd
+  h_d7f45408b008e1 1-368
+addons/gut/gui/ResultsTree.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/ResultsTree.tscn
+  h_d7f45408b008e1 1-34
+addons/gut/gui/RunAtCursor.gd
+  h_d7f45408b008e1 1-171
+addons/gut/gui/RunAtCursor.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/RunAtCursor.tscn
+  h_d7f45408b008e1 1-60
+addons/gut/gui/RunExternally.gd
+  h_d7f45408b008e1 1-216
+addons/gut/gui/RunExternally.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/RunExternally.tscn
+  h_d7f45408b008e1 1-65
+addons/gut/gui/RunResults.gd
+  h_d7f45408b008e1 1-250
+addons/gut/gui/RunResults.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/RunResults.tscn
+  h_d7f45408b008e1 1-109
+addons/gut/gui/Settings.tscn
+  h_d7f45408b008e1 1-7
+addons/gut/gui/ShellOutOptions.gd
+  h_d7f45408b008e1 1-321
+addons/gut/gui/ShellOutOptions.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/ShellOutOptions.tscn
+  h_d7f45408b008e1 1-34
+addons/gut/gui/ShortcutButton.gd
+  h_d7f45408b008e1 1-154
+addons/gut/gui/ShortcutButton.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/ShortcutButton.tscn
+  h_d7f45408b008e1 1-55
+addons/gut/gui/ShortcutDialog.gd
+  h_d7f45408b008e1 1-120
+addons/gut/gui/ShortcutDialog.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/ShortcutDialog.tscn
+  h_d7f45408b008e1 1-209
+addons/gut/gui/about.gd
+  h_d7f45408b008e1 1-136
+addons/gut/gui/about.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/about.tscn
+  h_d7f45408b008e1 1-68
+addons/gut/gui/arrow.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/gui/check_for_update.gd
+  h_d7f45408b008e1 1-152
+addons/gut/gui/check_for_update.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/check_for_update.tscn
+  h_d7f45408b008e1 1-45
+addons/gut/gui/editor_globals.gd
+  h_d7f45408b008e1 1-68
+addons/gut/gui/editor_globals.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/gut_config_gui.gd
+  h_d7f45408b008e1 1-282
+addons/gut/gui/gut_config_gui.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/gut_dock.gd
+  h_d7f45408b008e1 1-37
+addons/gut/gui/gut_dock.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/gut_gui.gd
+  h_d7f45408b008e1 1-239
+addons/gut/gui/gut_gui.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/gut_logo.gd
+  h_d7f45408b008e1 1-225
+addons/gut/gui/gut_logo.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/gut_user_preferences.gd
+  h_d7f45408b008e1 1-79
+addons/gut/gui/gut_user_preferences.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/option_maker.gd
+  h_d7f45408b008e1 1-124
+addons/gut/gui/option_maker.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/panel_controls.gd
+  h_d7f45408b008e1 1-484
+addons/gut/gui/panel_controls.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/play.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/gui/run_from_editor.gd
+  h_d7f45408b008e1 1-22
+addons/gut/gui/run_from_editor.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/run_from_editor.tscn
+  h_d7f45408b008e1 1-6
+addons/gut/gui/update_required.gd
+  h_d7f45408b008e1 1-30
+addons/gut/gui/update_required.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gui/update_required.tscn
+  h_d7f45408b008e1 1-17
+addons/gut/gut.gd
+  h_d7f45408b008e1 1-1278
+addons/gut/gut.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_cmdln.gd
+  h_d7f45408b008e1 1-71
+addons/gut/gut_cmdln.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_config.gd
+  h_d7f45408b008e1 1-236
+addons/gut/gut_config.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_constants.gd
+  h_d7f45408b008e1 1-130
+addons/gut/gut_constants.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_fonts.gd
+  h_d7f45408b008e1 1-94
+addons/gut/gut_fonts.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_loader.gd
+  h_d7f45408b008e1 1-75
+addons/gut/gut_loader.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_loader_the_scene.tscn
+  h_d7f45408b008e1 1-7
+addons/gut/gut_menu.gd
+  h_d7f45408b008e1 1-104
+addons/gut/gut_menu.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_plugin.gd
+  h_d7f45408b008e1 1-157
+addons/gut/gut_plugin.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_to_move.gd
+  h_d7f45408b008e1 1-92
+addons/gut/gut_to_move.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_tracked_error.gd
+  h_d7f45408b008e1 1-95
+addons/gut/gut_tracked_error.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/gut_vscode_debugger.gd
+  h_d7f45408b008e1 1-43
+addons/gut/gut_vscode_debugger.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/hook_script.gd
+  h_d7f45408b008e1 1-57
+addons/gut/hook_script.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/icon.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/Folder.svg
+  h_d7f45408b008e1 1
+addons/gut/images/Folder.svg.import
+  h_d7f45408b008e1 1-43
+addons/gut/images/GutIconV2_base.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/GutIconV2_no_shine.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/HSplitContainer.svg
+  h_d7f45408b008e1 1-39
+addons/gut/images/HSplitContainer.svg.import
+  h_d7f45408b008e1 1-44
+addons/gut/images/Script.svg
+  h_d7f45408b008e1 1
+addons/gut/images/Script.svg.import
+  h_d7f45408b008e1 1-43
+addons/gut/images/VSplitContainer.svg
+  h_d7f45408b008e1 1-39
+addons/gut/images/VSplitContainer.svg.import
+  h_d7f45408b008e1 1-44
+addons/gut/images/eyey.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/green.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/red.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/images/yellow.png.import
+  h_d7f45408b008e1 1-40
+addons/gut/inner_class_registry.gd
+  h_d7f45408b008e1 1-73
+addons/gut/inner_class_registry.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/input_factory.gd
+  h_d7f45408b008e1 1-159
+addons/gut/input_factory.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/input_sender.gd
+  h_d7f45408b008e1 1-651
+addons/gut/input_sender.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/junit_xml_export.gd
+  h_d7f45408b008e1 1-111
+addons/gut/junit_xml_export.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/lazy_loader.gd
+  h_d7f45408b008e1 1-39
+addons/gut/lazy_loader.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/logger.gd
+  h_d7f45408b008e1 1-431
+addons/gut/logger.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/menu_manager.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/method_maker.gd
+  h_d7f45408b008e1 1-192
+addons/gut/method_maker.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/one_to_many.gd
+  h_d7f45408b008e1 1-46
+addons/gut/one_to_many.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/orphan_counter.gd
+  h_d7f45408b008e1 1-221
+addons/gut/orphan_counter.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/parameter_factory.gd
+  h_d7f45408b008e1 1-91
+addons/gut/parameter_factory.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/parameter_handler.gd
+  h_d7f45408b008e1 1-36
+addons/gut/parameter_handler.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/plugin.cfg
+  h_d7f45408b008e1 1-7
+addons/gut/printers.gd
+  h_d7f45408b008e1 1-184
+addons/gut/printers.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/result_exporter.gd
+  h_d7f45408b008e1 1-125
+addons/gut/result_exporter.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/script_parser.gd
+  h_d7f45408b008e1 1-339
+addons/gut/script_parser.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/signal_watcher.gd
+  h_d7f45408b008e1 1-218
+addons/gut/signal_watcher.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/singleton_parser.gd
+  h_d7f45408b008e1 1-88
+addons/gut/singleton_parser.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/source_code_pro.fnt.import
+  h_d7f45408b008e1 1-17
+addons/gut/spy.gd
+  h_d7f45408b008e1 1-116
+addons/gut/spy.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/strutils.gd
+  h_d7f45408b008e1 1-175
+addons/gut/strutils.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/stub_params.gd
+  h_d7f45408b008e1 1-240
+addons/gut/stub_params.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/stubber.gd
+  h_d7f45408b008e1 1-204
+addons/gut/stubber.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/stubs.gd
+  h_d7f45408b008e1 1-110
+addons/gut/stubs.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/summary.gd
+  h_d7f45408b008e1 1-220
+addons/gut/summary.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/test.gd
+  h_d7f45408b008e1 1-2923
+addons/gut/test.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/test_collector.gd
+  h_d7f45408b008e1 1-277
+addons/gut/test_collector.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/thing_counter.gd
+  h_d7f45408b008e1 1-55
+addons/gut/thing_counter.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/update_detector.gd
+  h_d7f45408b008e1 1-346
+addons/gut/update_detector.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/utils.gd
+  h_d7f45408b008e1 1-672
+addons/gut/utils.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/version_conversion.gd
+  h_d7f45408b008e1 1-120
+addons/gut/version_conversion.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/version_numbers.gd
+  h_d7f45408b008e1 1-127
+addons/gut/version_numbers.gd.uid
+  h_d7f45408b008e1 1
+addons/gut/versions.json
+  h_d7f45408b008e1 1-39
+addons/gut/warnings_manager.gd
+  h_d7f45408b008e1 1-176
+addons/gut/warnings_manager.gd.uid
+  h_d7f45408b008e1 1
+assets/tiles/forest_placeholder.svg
+  h_d7f45408b008e1 1-11
+assets/tiles/forest_placeholder.svg.import
+  h_d7f45408b008e1 1-43
+docs/DEVELOPMENT_ROADMAP.md
+  h_d7f45408b008e1 1-73
+docs/MUD_REFERENCE.md
+  h_d7f45408b008e1 1-135
+docs/PORTABILITY.md
+  h_d7f45408b008e1 1-59
+docs/PORTABLE_README.txt
+  h_d7f45408b008e1 1-27
+docs/TEMPLE_ENCOUNTER.md
+  h_d7f45408b008e1 1-43
+docs/reference/README.md
+  h_d7f45408b008e1 1-37
+docs/reference/original-stack-proposal.md
+  h_d7f45408b008e1 1-1159
+docs/superpowers/plans/2026-09-30-class-selection.md
+  h_d7f45408b008e1 1-30
+docs/superpowers/plans/2026-09-30-temple.md
+  h_d7f45408b008e1 1-17
+export_presets.cfg
+  h_d7f45408b008e1 1-25
+game/actors/player.gd
+  h_d7f45408b008e1 1-39
+game/actors/player.gd.uid
+  h_d7f45408b008e1 1
+game/actors/player.tscn
+  h_d7f45408b008e1 1-14
+game/character/character_session.gd
+  h_d7f45408b008e1 1-51
+game/character/character_session.gd.uid
+  h_d7f45408b008e1 1
+game/character/character_stats.gd
+  h_d7f45408b008e1 1-19
+game/character/character_stats.gd.uid
+  h_d7f45408b008e1 1
+game/character/character_store.gd
+  h_d7f45408b008e1 1-95
+game/character/character_store.gd.uid
+  h_d7f45408b008e1 1
+game/character/class_catalog.gd
+  h_d7f45408b008e1 1-27
+game/character/class_catalog.gd.uid
+  h_d7f45408b008e1 1
+game/character/race_catalog.gd
+  h_d7f45408b008e1 1-20
+game/character/race_catalog.gd.uid
+  h_d7f45408b008e1 1
+game/main.gd
+  h_d7f45408b008e1 1-86
+game/main.gd.uid
+  h_d7f45408b008e1 1
+game/main.tscn
+  h_d7f45408b008e1 1-29
+game/ui/character_screen.gd
+  h_d7f45408b008e1 1-138
+game/ui/character_screen.gd.uid
+  h_d7f45408b008e1 1
+game/ui/character_summary.gd
+  h_d7f45408b008e1 1-48
+game/ui/character_summary.gd.uid
+  h_d7f45408b008e1 1
+game/ui/class_picker.gd
+  h_d7f45408b008e1 1-60
+game/ui/class_picker.gd.uid
+  h_d7f45408b008e1 1
+game/ui/class_picker.tscn
+  h_d7f45408b008e1 1-100
+game/world/temple.gd
+  h_d7f45408b008e1 1-152
+game/world/temple.gd.uid
+  h_d7f45408b008e1 1
+game/world/temple.tscn
+  h_d7f45408b008e1 1-114
+project.godot
+  h_d7f45408b008e1 1-58
+tests/integration/test_character_screen.gd
+  h_d7f45408b008e1 1-148
+tests/integration/test_character_screen.gd.uid
+  h_d7f45408b008e1 1
+tests/integration/test_character_summary.gd
+  h_d7f45408b008e1 1-117
+tests/integration/test_character_summary.gd.uid
+  h_d7f45408b008e1 1
+tests/integration/test_class_picker.gd
+  h_d7f45408b008e1 1-61
+tests/integration/test_class_picker.gd.uid
+  h_d7f45408b008e1 1
+tests/integration/test_temple.gd
+  h_d7f45408b008e1 1-156
+tests/integration/test_temple.gd.uid
+  h_d7f45408b008e1 1
+tests/unit/test_character_profiles.gd
+  h_d7f45408b008e1 1-109
+tests/unit/test_character_profiles.gd.uid
+  h_d7f45408b008e1 1
+tests/unit/test_character_session.gd
+  h_d7f45408b008e1 1-81
+tests/unit/test_character_session.gd.uid
+  h_d7f45408b008e1 1
+tools/check.ps1
+  h_d7f45408b008e1 1-19
+tools/check.sh
+  h_d7f45408b008e1 1-17
+tools/export_windows.sh
+  h_d7f45408b008e1 1-15
+tools/package_source.py
+  h_d7f45408b008e1 1-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "9961aca7d8c3a7377f5ba0b9f2343608e18b1e8e",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
