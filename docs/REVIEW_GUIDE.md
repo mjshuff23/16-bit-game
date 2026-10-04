@@ -36,3 +36,9 @@ No builds, executable exports, .godot caches, or personal character saves are
 committed. Larger binary art references are design inputs under docs/reference,
 not shipped runtime art. A pinned dependency-download step is a future option,
 but it adds setup/network requirements and is not needed to reduce review noise.
+## Dependency setup follow-up
+
+The download-setup PR removes the previously bundled GUT tree. Its numerous
+deletions remove unchanged upstream code; review tools/setup_gut.py and its tests
+for the replacement. Fresh clones and source archives download the pinned addon
+on first check. Earlier sections describe the original foundation PR.

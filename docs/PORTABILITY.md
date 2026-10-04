@@ -40,7 +40,10 @@ The engine rebuilds its `.godot/` cache. Use the console executable for checks:
 
 To export natively, install the matching Windows export templates through the
 editor, create `builds/windows`, and use Project -> Export -> Windows Desktop.
-GUT is included in source; no WSL-only paths occur in game resource references.
+Source archives omit GUT. Before running tests, install Python 3 and run
+`python tools/setup_gut.py` (WSL: `python3 tools/setup_gut.py`). Check scripts
+also run setup automatically. Playing the exported game requires neither GUT
+nor Python. No WSL-only paths occur in game resource references.
 
 Use exact filename casing in every `res://` path. `.gitattributes` keeps source
 line endings consistent across operating systems. Keep engine-generated `.uid`
