@@ -1,0 +1,32 @@
+docs/DEVELOPMENT_ROADMAP.md
+  h_d7f45408b008e1 113-128
+docs/TEMPLE_ENCOUNTER.md
+  h_d7f45408b008e1 43-61
+game/combat/training_encounter.gd
+  h_d7f45408b008e1 3,37,71,73,93,95,99,104,107,111,115,124,129-131
+game/main.gd
+  h_d7f45408b008e1 123
+game/ui/battle_stage.gd
+  h_d7f45408b008e1 1-80
+game/ui/battle_stage.gd.uid
+  h_d7f45408b008e1 1
+game/ui/training_screen.gd
+  h_d7f45408b008e1 6-8,17-24,26,28-56,58-59,61-63,66-75,80-83,85,88-90,92-93,95-97,135-137,139,145,150-151
+tests/integration/test_training.gd
+  h_d7f45408b008e1 106-148
+tests/unit/test_combat_events.gd
+  h_d7f45408b008e1 1-90
+tests/unit/test_combat_events.gd.uid
+  h_d7f45408b008e1 1
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "52e57b4f845f3fd6982d8808b4837a3e05780477",
+  "prompts": {},
+  "humans": {
+    "h_d7f45408b008e1": {
+      "author": "Michael Shuff <mjshuff23@gmail.com>"
+    }
+  }
+}
