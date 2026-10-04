@@ -49,7 +49,9 @@ the existing pixel-art world is framed with a 2x camera zoom without changing co
 movement coordinates. Art detail itself is unchanged.
 
 Engine: Godot 4.7.2 Standard, installed in WSL at `~/.local/bin/godot`.
-GUT 9.7.1 is vendored in addons/gut. Dialogue Manager 4.1.0 is planned for the
+GUT 9.7.1 is downloaded into ignored `addons/gut/` by `python3 tools/setup_gut.py`
+(Windows: `python tools/setup_gut.py`). Python 3 and internet are needed for the
+first setup; subsequent checks reuse the local addon offline. Dialogue Manager 4.1.0 is planned for the
 narrative milestone and is not installed yet.
 
 ## Open from Ubuntu / WSL

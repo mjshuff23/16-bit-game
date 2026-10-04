@@ -6,3 +6,8 @@ export_credentials.cfg
 # Platform metadata.
 .DS_Store
 Thumbs.db
+
+# Downloaded test dependency and Python cache.
+addons/gut/
+__pycache__/
+*.pyc
