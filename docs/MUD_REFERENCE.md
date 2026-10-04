@@ -133,3 +133,13 @@ race cap sets come from the corresponding MUD archetypes, with Sorcerer mapped t
 Witch/Warlock. Mazoku retains equal 95s by explicit user choice. Training/XP costs,
 racial powers, and class abilities are future work; only the selection/cap data
 and profile persistence are implemented now.
+
+
+## 2026-10-04 implementation note
+
+The shared Move pool is now named **Vigor** by user choice. The temple training
+prototype implements timed melee, skill costs/action lag, nonlethal results, and
+out-of-combat recovery. It uses deliberately simple provisional formulas, not a
+complete MUD combat port; see TEMPLE_ENCOUNTER.md. Racial abilities and XP
+progression remain future milestones. Source references above retain original
+MUD terminology for accuracy.

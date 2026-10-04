@@ -14,7 +14,7 @@ remains separate from Witch/Warlock the race. All races can choose any class.
 
 - WASD or arrow keys: four-direction movement, including while the summary is open.
 - C: toggle character summary; Esc closes it before returning to the character list.
-  Shows name, race, class, base attributes/caps, Health/Mana/Move, Hitroll/Damroll,
+  Shows name, race, class, base attributes/caps, Health/Mana/Vigor, Hitroll/Damroll,
   Armor, Primal, location, and first-quest status. This panel does not pause movement.
 - E or Enter near the altar: choose a class, or inspect after choosing.
 - E, Enter, or Esc: close inspection text.
@@ -27,10 +27,11 @@ those choices. Continuing starts at the forest spawn with default stats; world
 position/progression is not saved yet. Reclassing is not implemented.
 
 Shared stats: Body, Intellect (MUD Mind), Willpower, Spirit, all initially 10.
-HP 2000, Mana 1000, Move 1000. Race caps are independent of class; Mazoku retains
+HP 2000, Mana 1000, Vigor 1000. Race caps are independent of class; Mazoku retains
 95 in all four attributes by user choice. XP will train
 attributes from 10 up to racial caps. Training costs and earning/spending XP,
-combat, usable abilities, equipment, subclasses and professions come later.
+equipment, racial powers, full class kits, subclasses and professions come later.
+A repeatable temple training encounter now exercises timed melee and two practice skills.
 See [MUD_REFERENCE.md](docs/MUD_REFERENCE.md) for the source analysis and
 confirmed automatic-melee/skill-lag combat direction.
 
@@ -76,6 +77,27 @@ Windows export and recovery instructions: [PORTABILITY.md](docs/PORTABILITY.md).
 A Windows build runs independently of WSL; source backups can open in the native
 Windows editor. Run `bash tools/export_windows.sh` to regenerate the build.
 
-The next gameplay milestone can introduce the first enemy, automatic melee rounds,
-and one resource-consuming skill with action lag. Optional turn-based mode is
-planned for later. The priest/evidence knowledge loop remains planned.
+## Temple training
+
+After choosing a class, walk to the target post just east of the temple steps and
+press E. Start with Enter or the Start button. Automatic melee resolves every
+three seconds; Hitroll affects accuracy and Damroll adds damage.
+
+- **1: Heavy Strike** spends 80 Vigor and imposes 1.5 seconds of action lag.
+- **2: Spark** spends 100 Mana and imposes 2 seconds of action lag.
+- Skill lag blocks further skills, never automatic melee. Buttons show availability.
+- **C:** live character summary; combat continues. **Esc:** close summary, then leave.
+- Victory, defeat, and withdrawal end training. Defeat is nonlethal (minimum 1 HP).
+- Health/Mana/Vigor recover at 10% of maximum per second outside active training.
+- Ordinary exploration does not spend Vigor. Training grants no XP or loot yet.
+
+These are practice actions for all race/class combinations, not final class kits.
+The first implementation uses a dedicated training screen, with the overworld
+stationary until you leave. Existing profile saves are unchanged; spent pools
+still reset when a character is reloaded. No new persistent progression is implied.
+
+Rules and provisional balance: [TEMPLE_ENCOUNTER.md](docs/TEMPLE_ENCOUNTER.md).
+Running gaps and possible routes: [DEVELOPMENT_ROADMAP.md](docs/DEVELOPMENT_ROADMAP.md).
+Next selected milestone: [race-specific sprites](docs/reference/race-sprites/README.md),
+after this encounter PR. Optional turn-based combat and the priest/evidence
+knowledge loop remain planned.

@@ -1,6 +1,7 @@
 # 16-bit-game: current plan
 
-Updated 2026-09-30 for the user's anime/MUD direction and temple class quest.
+Updated 2026-10-04 for Vigor and the temple training encounter.
+Running gaps/routes: [DEVELOPMENT_ROADMAP.md](docs/DEVELOPMENT_ROADMAP.md).
 This supersedes earlier implementation plans and the archived original proposal.
 Detailed source evidence and proposed taxonomy: [MUD_REFERENCE.md](docs/MUD_REFERENCE.md).
 
@@ -28,15 +29,15 @@ rosters, and final story text. Develop one playable, explainable step at a time.
 - Reclassing and subclassing come later. Esc must not silently erase the character
   or bypass the temple quest. Profiles save identity and class, not world progress.
 - One map, four-direction movement, collision, and a fixed camera. Placeholder
-  art and neutral altar text. No combat or racial powers in this first quest.
+  art and neutral altar text. The class quest leads to an optional training post. Racial powers remain future work.
 
 ## Character systems
 
 Confirmed shared attributes: Body, Mind, Spirit, Willpower; each begins at 10.
-Shared source defaults: HP 2000/2000, Mana 1000/1000, Move 1000/1000, Primal 0.
-These are implemented as independent session data, not combat mechanics. Move
-points are distinct from overworld movement speed. The opening summary shows shared stats. Mind is labeled Intellect in UI; it is
-not a fifth attribute. Current values remain 10 independently of racial caps.
+Shared source defaults: HP 2000/2000, Mana 1000/1000, Vigor 1000/1000, Primal 0.
+Vigor replaces the MUD Move pool. Health, Mana, and Vigor now power the training
+encounter; walking remains free and resources recover outside active combat. The opening summary shows shared stats. Mind is labeled Intellect in UI; it is
+not a fifth attribute. Base attributes remain 10 independently of racial caps until XP training is added.
 
 Confirmed classification (corrected after user clarification):
 - Race/ancestry: Saiyan, Patryn, Mazoku, Fist, Witch/Warlock. Each has innate
@@ -73,17 +74,19 @@ Do not carry over legacy Human-only restrictions or add class cap bonuses. Names
 
 Confirmed default: automatically timed melee rounds that skill use cannot interrupt
 or reset. Melee uses Hitroll/Damroll, with equipment modifiers later. Skills have
-individual Move, Mana, and Power/Chi requirements and per-skill action lag.
+individual Vigor, Mana, and Power/Chi requirements and per-skill action lag.
 Keep automatic melee scheduling separate from the player's skill availability.
 Lag means a temporary action lock, not a synonym for a per-skill cooldown.
-Exact hit/damage formulas, resource ownership, round duration, and skill values
-will be defined and tested in the combat milestone.
+Prototype rules are defined in [TEMPLE_ENCOUNTER.md](docs/TEMPLE_ENCOUNTER.md).
+A three-second round, Hitroll-based accuracy, Damroll-based melee, and two universal
+practice skills are implemented. These do not establish the final racial/class kits.
 
 Optional turn-based mode is explicitly deferred. Keep battle resolution separate
 from advancement policy so it can later wait for decisions without duplicating
 combat rules. The source uses 3-second melee rounds and 4 engine pulses/second;
 WAIT_STATE values are pulses (4 = 1 second). World ticks are a different clock.
-No combat, equipment effects, or usable racial/class powers are implemented yet.
+The training encounter is implemented with nonlethal defeat and no rewards.
+Equipment effects and usable racial/class powers remain unimplemented.
 
 ## Stack and portability
 
@@ -147,7 +150,7 @@ Follow Red -> Green -> Refactor for behavior. Run tools/check.sh (WSL) or
 Verify visible changes with rendered inspection and real input paths. Keep tests
 for unclassed spawn, altar range, modal movement lock, cancel, confirmation, shared
 stat preservation, and quest completion. Add combat and race tests as those systems
-are introduced. Current source-review/design work does not imply combat is built.
+are introduced. Keep combat timing/resource tests deterministic and verify the rendered training screen.
 
 ## Character summary hotkey
 
@@ -156,3 +159,11 @@ continue moving; Esc closes the panel without leaving the world. Name entry and
 class selection retain their own keyboard behavior. The panel reads current
 session values, including racial caps and the first quest; it adds no progression
 or save-format changes. Interaction closes it before opening another game UI.
+
+
+## Next selected milestone
+
+After the temple encounter PR: race-specific sprites. The user supplied Mazoku,
+Saiyan, and Patryn images plus Fist-brawler and caped-mage directions. See
+[the visual brief](docs/reference/race-sprites/README.md). Do not change stats or
+race/class taxonomy as part of that visual work.

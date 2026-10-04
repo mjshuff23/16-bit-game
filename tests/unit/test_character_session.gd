@@ -14,8 +14,8 @@ func test_shared_stats_match_mud_starting_values() -> void:
 	assert_eq(session.stats.max_health, 2000)
 	assert_eq(session.stats.mana, 1000)
 	assert_eq(session.stats.max_mana, 1000)
-	assert_eq(session.stats.move_points, 1000)
-	assert_eq(session.stats.max_move_points, 1000)
+	assert_eq(session.stats.vigor, 1000)
+	assert_eq(session.stats.max_vigor, 1000)
 	assert_eq(session.stats.primal, 0)
 
 func test_class_confirmation_does_not_reset_stats() -> void:

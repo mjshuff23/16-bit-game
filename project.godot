@@ -56,3 +56,12 @@ character_summary={
 "deadzone": 0.5,
 "events": [Object(InputEventKey,"physical_keycode":67)]
 }
+
+training_heavy={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":49)]
+}
+training_spark={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"physical_keycode":50)]
+}

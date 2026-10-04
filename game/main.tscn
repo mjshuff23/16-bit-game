@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3]
+[gd_scene load_steps=7 format=3]
 
 [ext_resource type="Script" path="res://game/main.gd" id="1"]
 [ext_resource type="PackedScene" path="res://game/world/temple.tscn" id="2"]
@@ -7,6 +7,8 @@
 [ext_resource type="Script" path="res://game/ui/character_screen.gd" id="4"]
 
 [ext_resource type="Script" path="res://game/ui/character_summary.gd" id="5"]
+
+[ext_resource type="Script" path="res://game/ui/training_screen.gd" id="6"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1")
@@ -23,6 +25,10 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("4")
+
+[node name="Training" type="Control" parent="Interface"]
+visible = false
+script = ExtResource("6")
 
 [node name="CharacterSummary" type="Control" parent="Interface"]
 visible = false

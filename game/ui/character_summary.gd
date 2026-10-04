@@ -6,7 +6,7 @@ func _ready() -> void:
 	var panel := Panel.new()
 	panel.position = Vector2(350, 0)
 	panel.size = Vector2(290, 360)
-	panel.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	panel.mouse_filter = Control.MOUSE_FILTER_STOP
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color("101d19")
 	style.border_color = Color("829879")
@@ -30,7 +30,7 @@ func show_character(character: CharacterSession) -> void:
 	$Attributes.text = "BASE ATTRIBUTES / RACIAL CAPS\nBody %d / %d    Int %d / %d\nWill %d / %d    Spirit %d / %d" % [
 		stats.body, character.attribute_cap(&"body"), stats.mind, character.attribute_cap(&"mind"),
 		stats.willpower, character.attribute_cap(&"willpower"), stats.spirit, character.attribute_cap(&"spirit")]
-	$Resources.text = "Health  %d / %d\nMana    %d / %d\nMove    %d / %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, stats.move_points, stats.max_move_points]
+	$Resources.text = "Health  %d / %d\nMana    %d / %d\nVigor   %d / %d" % [stats.health, stats.max_health, stats.mana, stats.max_mana, stats.vigor, stats.max_vigor]
 	$Modifiers.text = "Hitroll %d   Damroll %d\nArmor %d   Primal %d" % [stats.hitroll, stats.damroll, stats.armor, stats.primal]
 	var quest := "Choose a class at the altar" if character.class_id == &"" else "Complete - class chosen"
 	$Quest.text = "Forest Temple\nFirst quest: %s" % quest

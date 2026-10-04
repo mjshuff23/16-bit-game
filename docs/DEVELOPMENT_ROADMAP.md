@@ -10,7 +10,7 @@ Before this work: named profiles, five races/twelve classes, temple class quest,
 640x360 presentation, non-modal C summary, WASD/arrows, Windows exports.
 The previous verified suite had 39 passing tests on WSL and Windows.
 
-### In progress: temple training encounter
+### Complete: temple training encounter
 
 - Rename shared Move pool to Vigor, including code, UI, tests, and current docs.
 - Resource bars for Health, Mana, Vigor; ordinary walking consumes no Vigor.
@@ -32,10 +32,10 @@ They are adjustable test values, not a claim to have reproduced the MUD formulas
 
 | Area | State before encounter | Next decision or work |
 | --- | --- | --- |
-| Combat | Planned only | Exercise timed melee, costs, lag, recovery, victory/defeat; then tune |
+| Combat | Temple training implemented | Playtest/tune; next add encounter variety and progression once persistence is ready |
 | Progression | Attributes start at 10; race caps exist | XP earning, training costs, cap enforcement, trainer UI; XP is the agreed training currency |
 | Saves | Identity/race/class only | Versioned migration for trained stats, XP, inventory, position, narrative progress; prevent replay/save exploits once rewards exist |
-| Stats | MUD starting pools and four attributes | Decide derived maximum pools, attack accuracy/damage, armor, resistances; prototype formulas are temporary |
+| Stats | Health/Mana/Vigor pools, recovery, and provisional training damage | Decide derived maximum pools, attack accuracy/damage, armor, resistances; prototype formulas are temporary |
 | Equipment | None | One weapon and one armor item before a full inventory; define stacking order for modifiers |
 | Race powers | Names and cap data only | One signature ability per race; separate racial resource/state ownership |
 | Classes | Choice and flavor only | Design small distinct skill kits; decide interactions with racial abilities |
@@ -44,7 +44,7 @@ They are adjustable test values, not a claim to have reproduced the MUD formulas
 | Art/audio | Procedural placeholders; no sound | Choose palette and sprite proportions; one authored tileset and character; combat cues before larger asset sets |
 | UX/accessibility | Keyboard movement/interaction/summary | Clear costs/lag feedback, rebinding, controller support, volume, readable color-independent indicators |
 | Portability | Native Windows/source snapshots | Keep newest build easy to identify; personal saves remain separate from source/build ZIPs |
-| Git/recovery | Working implementation previously uncommitted | Capture baseline and encounter commits on this branch; no remote push implied |
+| Git/recovery | Baseline captured in commit 9961aca on feature/temple-encounter | Encounter ready for the user-requested PR; keep main unchanged until reviewed |
 | Testing | Unit/integration plus rendered checks | Add deterministic combat tests and native input/playthrough checks; CI later |
 
 ## Possible routes after this encounter
@@ -71,3 +71,20 @@ others here, and revise after playing rather than committing to a giant roadmap.
   classes remain the original twelve. Attributes begin at 10; XP trains to caps.
 - Previously confirmed: timed melee cannot be interrupted/reset by skill use;
   skills impose custom action lag. Optional turn-based combat can come later.
+## Next selected milestone (user decision, 2026-10-04)
+
+After the temple encounter PR: **race-specific sprites**. References and acceptance
+criteria are in [race-sprites/README.md](reference/race-sprites/README.md). Implement
+base appearances for the five races first; transformations and equipment layers
+are later extensions. Other routes above remain available after this milestone.
+
+## Verification record — 2026-10-04
+
+- 54 tests / 417 assertions pass on WSL and native Windows.
+- Native playthrough verified post proximity, mouse Start, keyboard skills, live
+  character summary, automatic rounds, victory, withdrawal, and resource recovery.
+- Windows build and source snapshot: C:\Users\mjshu\Games\16-bit-game\temple-training.
+- WSL rendering used the dummy audio driver after a WSL PulseAudio timeout; no
+  game audio is implemented yet. Native Windows rendering ran without that workaround.
+- Source and native build remain compatible with existing identity/class profiles.
+- Next work is the race-sprite milestone above. No new sprites are implemented here.

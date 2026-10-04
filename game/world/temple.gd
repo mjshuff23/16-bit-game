@@ -2,8 +2,10 @@ extends Node2D
 
 signal class_selection_requested
 signal characters_requested
+signal training_requested
 
 const SPAWN := Vector2(160, 128)
+const TRAINING_POST := Vector2(202, 108)
 const ALTAR := Vector2(160, 48)
 const TREES: Array[Vector2] = [Vector2(24, 44), Vector2(50, 39), Vector2(79, 47), Vector2(247, 44), Vector2(276, 38), Vector2(301, 50), Vector2(29, 82), Vector2(65, 92), Vector2(258, 89), Vector2(294, 86), Vector2(20, 131), Vector2(54, 148), Vector2(88, 133), Vector2(232, 139), Vector2(274, 144), Vector2(302, 122)]
 const WALLS: Array[Rect2] = [Rect2(104, 24, 112, 8), Rect2(104, 32, 8, 56), Rect2(208, 32, 8, 56), Rect2(104, 80, 40, 8), Rect2(176, 80, 40, 8)]
@@ -29,6 +31,7 @@ func _ready() -> void:
 	for boundary in [Rect2(0, 16, 8, 148), Rect2(312, 16, 8, 148), Rect2(0, 8, 320, 8), Rect2(0, 160, 320, 8)]:
 		_add_obstacle(boundary)
 	_add_obstacle(Rect2(150, 40, 20, 12))
+	_add_obstacle(Rect2(197, 101, 10, 10))
 
 func start(class_id: StringName) -> void:
 	set_class(class_id)
@@ -40,11 +43,18 @@ func start(class_id: StringName) -> void:
 func set_class(class_id: StringName) -> void:
 	selected_class = class_id
 	$HUD/Header/Class.text = ClassCatalog.display_name(class_id) if class_id != &"" else "Unclassed"
-	$HUD/Objective.text = "First quest: choose a path at the altar" if class_id == &"" else "First quest complete: path chosen"
+	$HUD/Objective.text = "First quest: choose a path at the altar" if class_id == &"" else "First quest complete. Try the training post to the east."
 	prompt.text = "[E] Choose your path" if class_id == &"" else "[E] Inspect altar"
 
 func _process(_delta: float) -> void:
-	prompt.visible = not inspection_open and player.position.distance_to(ALTAR) <= 22.0
+	var near_altar := player.position.distance_to(ALTAR) <= 22.0
+	var near_training := player.position.distance_to(TRAINING_POST) <= 22.0
+	prompt.visible = not inspection_open and (near_altar or near_training)
+	if near_altar:
+		prompt.text = "[E] Choose your path" if selected_class == &"" else "[E] Inspect altar"
+	elif near_training:
+		prompt.text = "Choose a class first" if selected_class == &"" else "[E] Train"
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_echo():
@@ -63,6 +73,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 
 func try_interact() -> bool:
+	if not inspection_open and player.position.distance_to(TRAINING_POST) <= 22.0:
+		if selected_class == &"":
+			return false
+		training_requested.emit()
+		return true
 	if player.position.distance_to(ALTAR) > 22.0 or inspection_open:
 		return false
 	if selected_class == &"":
@@ -136,6 +151,12 @@ func _draw() -> void:
 	draw_rect(Rect2(158, 37, 4, 2), Color("d9c88b"))
 	for tree in TREES:
 		_draw_tree(tree)
+	# Neutral training post: a visible practice target, not a story character.
+	draw_rect(Rect2(TRAINING_POST + Vector2(-7, -2), Vector2(14, 5)), Color("283c31"))
+	draw_rect(Rect2(TRAINING_POST + Vector2(-2, -18), Vector2(4, 20)), Color("927149"))
+	draw_rect(Rect2(TRAINING_POST + Vector2(-10, -14), Vector2(20, 4)), Color("c2aa74"))
+	draw_circle(TRAINING_POST + Vector2(0, -17), 6, Color("b99b62"))
+	draw_circle(TRAINING_POST + Vector2(0, -17), 3, Color("765442"))
 	# Tiny flowers and moss patches, deterministic so the map does not change per run.
 	for spot in [Vector2(91, 105), Vector2(121, 119), Vector2(201, 136), Vector2(226, 104)]:
 		draw_rect(Rect2(spot, Vector2(3, 2)), Color("c7b68d"))

@@ -11,7 +11,7 @@ WASD/arrows: move. E/Enter: interact. Esc: close a modal or return to characters
 Use mouse or Tab/arrows and Enter/Space in menus.
 
 Identity and class save automatically. Continuing starts at the forest spawn;
-world position and progression are not saved. Combat and usable powers come later.
+world position and progression are not saved. Temple training is available; final racial/class power kits come later.
 
 Character data: %APPDATA%/Godot/app_userdata/16-bit Game/characters.json
 Back up that file separately; source/build ZIPs do not contain personal saves.
@@ -25,3 +25,9 @@ Integer scaling preserves pixels when resizing; some window sizes show borders.
 
 C: open/close character summary. WASD and arrow keys still move while it is open.
 Esc closes the summary; interaction closes it before opening another game panel.
+
+Temple training: after choosing a class, approach the target post east of the steps.
+E opens training. Enter starts; 1 Heavy Strike (80 Vigor), 2 Spark (100 Mana).
+Melee runs every 3 seconds even during skill action lag. Esc leaves safely.
+Health/Mana/Vigor recover outside active combat. Training has no XP/loot rewards.
+Resources are session-only and reset when reloading a character.

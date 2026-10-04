@@ -3,13 +3,21 @@ extends Node
 var session := CharacterSession.new()
 var save_path := "user://characters.json"
 var store: CharacterStore
+var encounter: TrainingEncounter
+var world_bars: ResourceBars
 
+@onready var training: Control = $Interface/Training
 @onready var summary: Control = $Interface/CharacterSummary
 @onready var temple: Node2D = $Temple
 @onready var picker: Control = $Interface/ClassPicker
 @onready var characters: Control = $Interface/CharacterScreen
 
 func _ready() -> void:
+	world_bars = ResourceBars.new()
+	world_bars.position = Vector2(16, 34)
+	temple.get_node("HUD").add_child(world_bars)
+	training.leave_requested.connect(_leave_training)
+	temple.training_requested.connect(_open_training)
 	store = CharacterStore.new(save_path)
 	store.load_profiles()
 	characters.store = store
@@ -21,6 +29,10 @@ func _ready() -> void:
 	return_to_characters()
 
 func return_to_characters() -> void:
+	if encounter != null:
+		encounter.withdraw()
+	encounter = null
+	_set_screen(training, false)
 	summary.hide()
 	temple.close_inspection()
 	_set_screen(temple, false)
@@ -29,6 +41,7 @@ func return_to_characters() -> void:
 	characters.refresh()
 
 func _enter_world(character: CharacterSession) -> void:
+	encounter = null
 	session = character
 	picker.session = session
 	_set_screen(characters, false)
@@ -68,11 +81,11 @@ func _open_choice() -> void:
 	_set_screen(picker, true)
 	picker.reset_selection()
 func _input(event: InputEvent) -> void:
-	if not temple.visible or characters.visible or picker.visible:
+	if (not temple.visible and not training.visible) or characters.visible or picker.visible:
 		return
 	if event.is_action_pressed("character_summary"):
 		get_viewport().set_input_as_handled()
-		if event.is_echo() or temple.inspection_open:
+		if event.is_echo() or (temple.visible and temple.inspection_open):
 			return
 		if summary.visible:
 			summary.hide()
@@ -84,3 +97,33 @@ func _input(event: InputEvent) -> void:
 			summary.hide()
 	elif summary.visible and (event.is_action_pressed("interact") or event.is_action_pressed("ui_accept")):
 		summary.hide()
+
+
+func _process(delta: float) -> void:
+	if session.character_id.is_empty() or characters.visible:
+		return
+	if encounter != null:
+		encounter.advance(delta)
+	else:
+		session.stats.recover(delta)
+	world_bars.update_values(session.stats)
+	if training.visible:
+		training.refresh()
+	if summary.visible:
+		summary.show_character(session)
+
+func _open_training() -> void:
+	if session.class_id == &"":
+		return
+	summary.hide()
+	encounter = TrainingEncounter.new(session.stats)
+	_set_screen(temple, false)
+	_set_screen(training, true)
+	training.open(encounter)
+
+func _leave_training() -> void:
+	if encounter != null:
+		encounter.withdraw()
+	summary.hide()
+	_set_screen(training, false)
+	_set_screen(temple, true)

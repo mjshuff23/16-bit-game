@@ -67,7 +67,7 @@ func test_summary_refreshes_after_class_choice_and_closes_with_c() -> void:
 	assert_not_null(summary)
 	if summary == null: return
 	assert_string_contains(summary.get_node("Identity").text, "Warlock")
-	assert_string_contains(summary.get_node("Resources").text, "321 / 1000")
+	assert_string_contains(summary.get_node("Resources").text, "%d / 1000" % game.session.stats.mana)
 	assert_string_contains(summary.get_node("Quest").text, "Complete")
 	await key(KEY_C)
 	assert_false(summary.visible)
