@@ -110,3 +110,19 @@ assertions prevent shared-frame regressions. Generator validation rejects bad in
 before touching metadata and fails explicitly on output errors. Checks now include
 three isolated generator tests. Updated validation: 59 GUT tests / 740 assertions,
 5 setup tests and 3 generator tests on WSL and native Windows; Windows export passes.
+
+## Graphical temple battles — 2026-10-04
+
+Implemented a one-on-one opposing-sides training view: wooden construct on the
+left, the active race's left-facing idle sprite on the right, forest-temple
+terrace behind them. Bottom controls show pools, numeric melee/skill-lag meters,
+commands and a two-line log. Structured combat events drive target flashes,
+floating damage and misses without controlling combat time. Leaving/restarting
+clears feedback and disconnects old models. Existing rules, saves and costs remain.
+
+Validation: 66 GUT tests / 942 assertions on WSL and Windows, plus setup/generator
+checks. Native exported-PCK playthrough covered mouse Start, keyboard skill,
+C/Esc summary, continuing melee clock, leave, all race visuals and 1280x720 /
+1920x1080 windows. Next possible extensions: party members and targeting,
+dedicated attack/casting/hit art, sounds, enemy variety, and XP/persistence.
+No new milestone is selected automatically.

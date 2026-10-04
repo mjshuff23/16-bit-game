@@ -120,7 +120,7 @@ func _open_training() -> void:
 	encounter = TrainingEncounter.new(session.stats)
 	_set_screen(temple, false)
 	_set_screen(training, true)
-	training.open(encounter)
+	training.open(encounter, session)
 
 func _leave_training() -> void:
 	if encounter != null:
