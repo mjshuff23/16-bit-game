@@ -1,0 +1,114 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://game/world/temple.gd" id="1"]
+[ext_resource type="PackedScene" path="res://game/actors/player.tscn" id="2"]
+
+[sub_resource type="Theme" id="Theme_hud"]
+default_font_size = 18
+
+[sub_resource type="StyleBoxFlat" id="Panel_inspection"]
+bg_color = Color(0.06, 0.10, 0.085, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.70, 0.49, 1)
+
+[node name="Temple" type="Node2D"]
+script = ExtResource("1")
+
+[node name="Camera" type="Camera2D" parent="."]
+position = Vector2(160, 90)
+zoom = Vector2(2, 2)
+
+[node name="Ground" type="TileMapLayer" parent="."]
+z_index = -1
+
+[node name="Obstacles" type="Node2D" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2")]
+position = Vector2(160, 128)
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="Header" type="ColorRect" parent="HUD"]
+offset_right = 640.0
+offset_bottom = 32.0
+mouse_filter = 2
+theme = SubResource("Theme_hud")
+color = Color(0.055, 0.085, 0.075, 1)
+
+[node name="Location" type="Label" parent="HUD/Header"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 468.0
+offset_bottom = 30.0
+text = "FOREST TEMPLE"
+theme_override_colors/font_color = Color(0.82, 0.85, 0.68, 1)
+
+[node name="Class" type="Label" parent="HUD/Header"]
+offset_left = 476.0
+offset_top = 2.0
+offset_right = 624.0
+offset_bottom = 30.0
+horizontal_alignment = 2
+
+[node name="Footer" type="ColorRect" parent="HUD"]
+offset_top = 328.0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+theme = SubResource("Theme_hud")
+color = Color(0.055, 0.085, 0.075, 1)
+
+[node name="Controls" type="Label" parent="HUD/Footer"]
+offset_left = 16.0
+offset_top = 2.0
+offset_right = 624.0
+offset_bottom = 30.0
+text = "WASD / arrows: move   E: interact   C: character   Esc: menu"
+horizontal_alignment = 1
+
+[node name="Prompt" type="Label" parent="HUD"]
+visible = false
+offset_left = 204.0
+offset_top = 188.0
+offset_right = 436.0
+offset_bottom = 218.0
+theme = SubResource("Theme_hud")
+text = "[E] Inspect altar"
+horizontal_alignment = 1
+theme_override_colors/font_color = Color(1, 0.92, 0.65, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+
+[node name="Objective" type="Label" parent="HUD"]
+offset_left = 16.0
+offset_top = 290.0
+offset_right = 624.0
+offset_bottom = 320.0
+theme = SubResource("Theme_hud")
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.9, 0.88, 0.68, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 1
+theme_override_constants/shadow_offset_y = 1
+horizontal_alignment = 1
+
+[node name="Inspection" type="Panel" parent="HUD"]
+visible = false
+offset_left = 24.0
+offset_top = 228.0
+offset_right = 616.0
+offset_bottom = 320.0
+theme_override_styles/panel = SubResource("Panel_inspection")
+
+[node name="Text" type="Label" parent="HUD/Inspection"]
+offset_left = 16.0
+offset_top = 10.0
+offset_right = 576.0
+offset_bottom = 80.0
+text = "A weathered altar, its markings long faded.\nE / Enter / Esc: close"
+theme = SubResource("Theme_hud")
+theme_override_font_sizes/font_size = 16

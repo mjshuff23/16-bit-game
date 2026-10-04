@@ -1,0 +1,16 @@
+* text=auto eol=lf
+*.png binary
+*.jpg binary
+*.ogg binary
+*.wav binary
+*.ttf binary
+*.woff2 binary
+*.zip binary
+*.pck binary
+*.exe binary
+
+# Bundled upstream code: keep offline tests reproducible, collapse review noise.
+addons/gut/** linguist-vendored=true linguist-generated=true
+# Godot-generated metadata stays tracked but is collapsed in GitHub diffs.
+*.uid linguist-generated=true
+*.import linguist-generated=true
