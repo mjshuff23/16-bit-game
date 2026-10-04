@@ -24,7 +24,6 @@ func _draw() -> void:
 	var frame := RaceSprites.frame_at(walk_time)
 	var region := RaceSprites.region(race_id, facing, frame)
 	var anchor := RaceSprites.anchor(race_id, facing, frame)
-	draw_rect(Rect2(-6, 0, 12, 3), Color("1a2825"))
 	draw_texture_rect_region(RaceSprites.SHEETS[race_id], Rect2(-anchor * RaceSprites.ART_SCALE, region.size * RaceSprites.ART_SCALE), region)
 
 func set_race(id: StringName) -> void:
