@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
 const SPEED := 55.0
+var race_id: StringName = &"saiyan"
 var movement_enabled := true
 var facing := Vector2.DOWN
 var walk_time := 0.0
@@ -20,20 +21,12 @@ func _physics_process(delta: float) -> void:
 	queue_redraw()
 
 func _draw() -> void:
-	var step := 1 if int(walk_time * 8.0) % 2 == 1 else 0
-	draw_rect(Rect2(-6, 0, 12, 3), Color("1a2825"))
-	draw_rect(Rect2(-4, -4, 3, 6 - step), Color("293038"))
-	draw_rect(Rect2(1, -4, 3, 5 + step), Color("293038"))
-	draw_rect(Rect2(-5, -11, 10, 9), Color("4c7582"))
-	draw_rect(Rect2(-3, -11, 3, 8), Color("79a5a5"))
-	draw_rect(Rect2(-5, -5, 10, 2), Color("c6a977"))
-	draw_rect(Rect2(-4, -17, 8, 7), Color("d5ae83"))
-	draw_rect(Rect2(-5, -18, 10, 3), Color("302e3e"))
-	if facing == Vector2.UP:
-		draw_rect(Rect2(-4, -16, 8, 5), Color("302e3e"))
-	elif facing == Vector2.DOWN:
-		draw_rect(Rect2(-3, -14, 1, 2), Color("252734"))
-		draw_rect(Rect2(2, -14, 1, 2), Color("252734"))
-	else:
-		var eye_x := -3 if facing == Vector2.LEFT else 2
-		draw_rect(Rect2(eye_x, -14, 1, 2), Color("252734"))
+	var frame := RaceSprites.frame_at(walk_time)
+	var region := RaceSprites.region(race_id, facing, frame)
+	var anchor := RaceSprites.anchor(race_id, facing, frame)
+	draw_texture_rect_region(RaceSprites.SHEETS[race_id], Rect2(-anchor * RaceSprites.ART_SCALE, region.size * RaceSprites.ART_SCALE), region)
+
+func set_race(id: StringName) -> void:
+	race_id = id if RaceSprites.SHEETS.has(id) else &"saiyan"
+	walk_time = 0.0
+	queue_redraw()

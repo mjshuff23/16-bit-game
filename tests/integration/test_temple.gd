@@ -154,3 +154,15 @@ func test_altar_requires_proximity_and_stops_motion_while_reading() -> void:
 	await wait_physics_frames(8)
 	assert_gt(player.position.y, 62.0)
 
+
+func test_entering_world_applies_each_profile_race() -> void:
+	for race in RaceCatalog.RACES:
+		var profile := CharacterSession.new()
+		profile.race_id = race
+		profile.character_name = "Sprite test"
+		profile.class_id = &"wizard"
+		game._enter_world(profile)
+		assert_eq(world.player.race_id, race)
+		assert_true(RaceSprites.SHEETS.has(race))
+		assert_true(RaceSprites.REGIONS.has(String(race)))
+		assert_eq(world.selected_class, &"wizard", "Race art does not change class")

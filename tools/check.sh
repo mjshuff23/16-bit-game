@@ -4,6 +4,7 @@ cd "$(dirname "$0")/.."
 godot_bin="${GODOT_BIN:-$HOME/.local/bin/godot}"
 python3 tools/setup_gut.py
 python3 tools/test_setup_gut.py
+python3 tools/test_sprite_regions.py --godot "$godot_bin"
 check_log="$(mktemp)"
 trap 'rm -f "$check_log"' EXIT
 

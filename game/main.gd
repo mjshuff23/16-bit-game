@@ -46,6 +46,7 @@ func _enter_world(character: CharacterSession) -> void:
 	picker.session = session
 	_set_screen(characters, false)
 	_close_choice()
+	temple.player.set_race(session.race_id)
 	temple.start(session.class_id)
 	temple.get_node("HUD/Header/Location").text = "%s / %s" % [session.character_name, RaceCatalog.display_name(session.race_id)]
 

@@ -4,7 +4,7 @@ Living document. Updated 2026-10-04. Update statuses, evidence, and next decisio
 at each milestone. PLAN.md describes the game direction; this file tracks what
 is missing and which routes we could take next.
 
-## Current branch: feature/temple-encounter
+## Temple encounter baseline
 
 Before this work: named profiles, five races/twelve classes, temple class quest,
 640x360 presentation, non-modal C summary, WASD/arrows, Windows exports.
@@ -71,12 +71,12 @@ others here, and revise after playing rather than committing to a giant roadmap.
   classes remain the original twelve. Attributes begin at 10; XP trains to caps.
 - Previously confirmed: timed melee cannot be interrupted/reset by skill use;
   skills impose custom action lag. Optional turn-based combat can come later.
-## Next selected milestone (user decision, 2026-10-04)
+## Selected milestone: race sprites (implemented below)
 
-After the temple encounter PR: **race-specific sprites**. References and acceptance
-criteria are in [race-sprites/README.md](reference/race-sprites/README.md). Implement
-base appearances for the five races first; transformations and equipment layers
-are later extensions. Other routes above remain available after this milestone.
+The five base race appearances are implemented; details and verification are
+recorded below. Original references are in
+[race-sprites/README.md](reference/race-sprites/README.md). Transformations and
+equipment layers remain future extensions. Other expansion routes remain open.
 
 ## Verification record — 2026-10-04
 
@@ -87,4 +87,26 @@ are later extensions. Other routes above remain available after this milestone.
 - WSL rendering used the dummy audio driver after a WSL PulseAudio timeout; no
   game audio is implemented yet. Native Windows rendering ran without that workaround.
 - Source and native build remain compatible with existing identity/class profiles.
-- Next work is the race-sprite milestone above. No new sprites are implemented here.
+- This verification record covers the temple PR; race-sprite work is recorded below.
+
+## Race sprite milestone — 2026-10-04
+
+Implemented the five user-supplied race sheets: Saiyan, Fist, Mazoku,
+Witch/Warlock, and Patryn. Four directions, idle and two walking poses; boot
+anchors, shared scale, original transparent artwork. Profile entry refreshes
+race appearance independently of class. Existing movement and collision preserved.
+
+Follow-ups: portraits in character selection, attack/casting/hit poses, smoother
+walk cycles, transformations, equipment layers, and a matching environment art pass.
+No new race powers, combat rules or progression are included in this milestone.
+
+Validation: 58 GUT tests / 630 assertions on WSL and Windows, plus 5 setup tests;
+headless imports/startup and Windows release export. Inspected native rendered
+idle and both walking poses for every race/direction, temple scale, and repeated
+rendering from the exported PCK. Further animation smoothing remains a polish task.
+
+Review follow-up: fractional facing uses axis/sign; sheet-cell and catalog coverage
+assertions prevent shared-frame regressions. Generator validation rejects bad input
+before touching metadata and fails explicitly on output errors. Checks now include
+three isolated generator tests. Updated validation: 59 GUT tests / 740 assertions,
+5 setup tests and 3 generator tests on WSL and native Windows; Windows export passes.
