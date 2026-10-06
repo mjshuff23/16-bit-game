@@ -20,8 +20,12 @@ window/size/viewport_width=640
 window/size/viewport_height=360
 window/size/window_width_override=1280
 window/size/window_height_override=720
+window/size/window_width_override.web=640
+window/size/window_height_override.web=360
+window/dpi/allow_hidpi.web=false
 window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
+window/stretch/scale_mode.web="fractional"
 
 [rendering]
 
@@ -29,6 +33,10 @@ textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
 environment/defaults/default_clear_color=Color(0.055, 0.085, 0.075, 1)
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse.web=true
 
 [input]
 
