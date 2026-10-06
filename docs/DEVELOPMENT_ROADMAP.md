@@ -126,3 +126,16 @@ C/Esc summary, continuing melee clock, leave, all race visuals and 1280x720 /
 1920x1080 windows. Next possible extensions: party members and targeting,
 dedicated attack/casting/hit art, sounds, enemy variety, and XP/persistence.
 No new milestone is selected automatically.
+
+## Browser/mobile milestone — 2026-10-06
+
+- Web export, HTTPS preview publishing helper, landscape shell and touch pad.
+- Touch Use/Char/Back plus existing tappable class and combat commands.
+- Browser-local identity/class saves; hidden-page and portrait simulation pause.
+- Verified desktop browser creation, altar class choice, movement, summary,
+  graphical training actions and persistence across reloads. Native iPhone
+  Chrome/Safari playtest remains the acceptance step; see MOBILE_WEB.md.
+- No combat balance or save-schema changes. Native Windows remains supported.
+- Future: phone UX refinements after hardware feedback, offline/PWA packaging,
+  explicit save export/import or sync. Parties, targeting, dedicated combat
+  animations, sound and progression remain separate milestones.

@@ -103,3 +103,9 @@ Running gaps and possible routes: [DEVELOPMENT_ROADMAP.md](docs/DEVELOPMENT_ROAD
 Next selected milestone: [race-specific sprites](docs/reference/race-sprites/README.md),
 after this encounter PR. Optional turn-based combat and the priest/evidence
 knowledge loop remain planned.
+
+## Play in a phone browser
+
+A landscape Web build adds touch controls while retaining desktop keyboard input.
+See [the mobile guide](docs/MOBILE_WEB.md) for controls, local saves, exporting,
+GitHub Pages publishing and the iPhone acceptance checklist.

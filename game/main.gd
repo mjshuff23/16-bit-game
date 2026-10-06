@@ -5,6 +5,8 @@ var save_path := "user://characters.json"
 var store: CharacterStore
 var encounter: TrainingEncounter
 var world_bars: ResourceBars
+var mobile: MobileControls
+var lifecycle: WebLifecycle
 
 @onready var training: Control = $Interface/Training
 @onready var summary: Control = $Interface/CharacterSummary
@@ -13,6 +15,13 @@ var world_bars: ResourceBars
 @onready var characters: Control = $Interface/CharacterScreen
 
 func _ready() -> void:
+	lifecycle = WebLifecycle.new()
+	add_child(lifecycle)
+	var touch_layer := CanvasLayer.new()
+	touch_layer.layer = 3
+	add_child(touch_layer)
+	mobile = MobileControls.new()
+	touch_layer.add_child(mobile)
 	world_bars = ResourceBars.new()
 	world_bars.position = Vector2(16, 34)
 	temple.get_node("HUD").add_child(world_bars)
@@ -101,6 +110,11 @@ func _input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
+	mobile.update_context(temple.visible and not picker.visible, training.visible, temple.inspection_open, summary.visible)
+	if lifecycle.skip_frame:
+		mobile.release_actions()
+		lifecycle.skip_frame = false
+		return
 	if session.character_id.is_empty() or characters.visible:
 		return
 	if encounter != null:

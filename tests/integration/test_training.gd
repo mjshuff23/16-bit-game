@@ -146,3 +146,22 @@ func test_feedback_overlaps_and_restart_clears_it() -> void:
 	assert_string_contains(screen.get_node("Outcome").text, "Withdrawn")
 	model.start()
 	assert_eq(screen.stage.feedback.size(), 0)
+
+func test_background_pause_freezes_round_and_lag_and_discards_resume_delta() -> void:
+	choose_class()
+	game._open_training()
+	game.encounter.start()
+	game.encounter.use_skill(&"heavy_strike")
+	game.lifecycle.set_suspended(true)
+	var round_before: float = game.encounter.until_round
+	var lag_before: float = game.encounter.lag_remaining
+	await wait_process_frames(4)
+	assert_eq(game.encounter.until_round, round_before)
+	assert_eq(game.encounter.lag_remaining, lag_before)
+	game.lifecycle.set_suspended(false)
+	game._process(60.0)
+	assert_eq(game.encounter.until_round, round_before)
+	assert_eq(game.encounter.lag_remaining, lag_before)
+	game._process(0.1)
+	assert_almost_eq(game.encounter.until_round, round_before - 0.1, 0.001)
+	assert_almost_eq(game.encounter.lag_remaining, lag_before - 0.1, 0.001)
