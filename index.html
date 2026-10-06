@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Forest Temple RPG</title>
+<style>
+*{box-sizing:border-box}html,body{margin:0;width:100%;height:100%;background:#0e1916;color:#eee9cf;font:16px system-ui;overflow:hidden}body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}#canvas{display:block;position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100dvh * 16 / 9));height:auto;max-width:calc(100vw - env(safe-area-inset-left) - env(safe-area-inset-right));max-height:calc(100dvh - env(safe-area-inset-top) - env(safe-area-inset-bottom));touch-action:none;outline:none;image-rendering:pixelated}#cover,#rotate{position:fixed;inset:0;background:#10221f;display:flex;align-items:center;justify-content:center;text-align:center;padding:24px;z-index:5}.card{max-width:540px}button{padding:14px 28px;background:#d1c78e;color:#10221f;border:0;border-radius:8px;font:700 18px system-ui;min-height:48px}small{display:block;color:#b4c3b1;margin-top:16px}#rotate{display:none;z-index:6}@media (orientation:portrait) and (pointer:coarse){#rotate{display:flex}}#status{white-space:pre-wrap}
+</style><link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
+<link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
+</head><body>
+<canvas width="640" height="360" id="canvas" tabindex="0">Your browser needs WebGL 2 to run the game.</canvas>
+<div id="cover"><div class="card"><h1>Forest Temple</h1><p id="status">Play in landscape. Touch controls appear in the game.</p><button id="play" disabled>Play</button><small>Saves stay in this browser. Clearing site data removes them.<br>First load downloads the game; allow a moment on mobile data.</small></div></div>
+<div id="rotate"><div><h2>Rotate your phone</h2><p>Play in landscape for room to move and battle.</p></div></div>
+<script src="index.js"></script><script>
+const engine = new Engine({"args":[],"canvasResizePolicy":0,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":5588464,"index.wasm":39514754},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4});
+const portrait = matchMedia('(orientation: portrait) and (pointer: coarse)');
+window.gameResumeEpoch = 0;
+function lifecycle(){window.gameSuspended = document.hidden || portrait.matches; window.gameResumeEpoch++;}
+document.addEventListener('visibilitychange',lifecycle); portrait.addEventListener('change',lifecycle); window.addEventListener('pagehide',()=>{window.gameSuspended=true;window.gameResumeEpoch++;}); window.addEventListener('pageshow',lifecycle); lifecycle();
+const play=document.getElementById('play'), status=document.getElementById('status');
+play.disabled=false;
+play.addEventListener('click',async()=>{play.disabled=true;status.textContent='Loading…';try{
+await engine.startGame({canvas:document.getElementById('canvas'),onProgress:(current,total)=>{status.textContent=total>0?'Loading '+Math.floor(current/total*100)+'%':'Loading…';}});
+document.getElementById('cover').style.display='none'; document.getElementById('canvas').focus();
+}catch(error){status.textContent='Could not start the game. Reload to retry.\n'+String(error);play.style.display='none';}});
+</script></body></html>
+
